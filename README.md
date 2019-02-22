@@ -25,23 +25,7 @@ The analysis is broken into two scripts analysis_01 which calculates differentia
 
 ## Collaborators
 
-Juan C. Hernandez-Prera
-Pablo Valderrabano
-Jordan Creed
-Barbara Centeno
-Valentina Tarasova
-Julie Hallanger-Johnson
-Bryan McIver
-Bruce Wenig
-Sean Yoder
-Cesar A. Lam
-Derek S. Park
-Alexander R. Anderson
-Natarajan Raghunand
-Anders Berglund
-Travis A. Gerke
-Christine H. Chung
-
+Juan C. Hernandez-Prera, Pablo Valderrabano, Jordan Creed, Barbara Centeno, Valentina Tarasova, Julie Hallanger-Johnson, Bryan McIver, Bruce Wenig, Sean Yoder, Cesar A. Lam, Derek S. Park, Alexander R. Anderson, Natarajan Raghunand, Anders Berglund, Travis A. Gerke, Christine H. Chung
 
 ## Contact Information 
 
