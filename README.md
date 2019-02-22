@@ -11,9 +11,9 @@ The Pathways Panel examines gene expression in 770 genes in 13 cancer related pa
 
 For more information on these panels, please visit the [Nanostring website](https://www.nanostring.com/products/gene-expression-panels/gene-expression-panels-overview). 
 
-## Pipeline
+## QC
 
-GET DETAILS FROM ANDERS
+Raw gene expression was normalized using NanoString nSolver Analysis Software v4.0 and log-2 transformed prior to analysis. 
 
 ## Data
 
