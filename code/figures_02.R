@@ -433,7 +433,7 @@ l3 <-  ggplot(data = clinical_long[clinical_long$variable=="Beth_cat",],
 l4 <- ggplot(data = clinical_long[clinical_long$variable=="histology",],
              aes(x = variable, y = PATIENT_ID)) +
   geom_tile(aes(fill = str_wrap(value,width = 40))) +
-  scale_fill_jama(labels=c("No Neoplastic Appearance","Benign","Indeterminant",
+  scale_fill_jama(labels=c("No Neoplastic Appearance","Benign","Indeterminant (NIFTP)",
                            "Low-risk Malignant","High-risk Malignant")) + 
   labs(fill="Histology") +
   theme(legend.position="bottom") +
@@ -547,9 +547,11 @@ ggplot(melted_io[melted_io$variable %in% io_diff_genes,], aes(x=variable, y=valu
         axis.line = element_line(colour = "black"), 
         plot.title = element_text(hjust = 0.5, size=20, face="bold"),
         axis.title = element_text(face="bold", size=15)) +
-  guides(fill=FALSE, colour=FALSE) +
+  guides(fill=FALSE, colour = guide_legend("Histology")) +
   labs(x="Gene",y="Expression") +
-  scale_color_jama()
+  scale_color_jama(labels = c("Non-neoplastic Appearance", "Benign",
+                              "Indeterminant (NIFTP)", "Low-risk Cancer",
+                              "High-risk Cancer"))
 
 rm(io_diff_genes,io_tmp,melted_io)
 
@@ -579,5 +581,5 @@ clinical %>%
   labs(x = "", y = "H-score") +
   ggtitle("Angiopoeitin-2 IHC staining in \n RAS-mutant thyroid tumors") + 
   scale_color_jama() + 
-  scale_x_discrete(labels = c("No Neoplastic \n Appearance", "Benign", "Indeterminant",
+  scale_x_discrete(labels = c("No Neoplastic \n Appearance", "Benign", "Indeterminant (NIFTP)",
                               "Low-risk \n Malignant", "High-risk \n Malignant"))
