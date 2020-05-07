@@ -1,7 +1,7 @@
 library(cgdsr)
 library(tidyverse)
 library(ggsci)
-
+library(ggsignif)
 
 # Create CGDS object
 mycgds = CGDS("http://www.cbioportal.org/")
@@ -15,7 +15,8 @@ getCancerStudies(mycgds)
 # 244 = TCGA provisional 
 # thyroid = getCancerStudies(mycgds)[178,1]
 # use study Papillary Thyroid Carcinoma (TCGA, Cell 2014) : thca_tcga_pub 
-thyroid = getCancerStudies(mycgds)[180,1]
+# thyroid = getCancerStudies(mycgds)[180,1]
+thyroid = "thca_tcga_pub"
 thyroid_case_list = getCaseLists(mycgds,thyroid)[1,1]
 
 # Get available genetic profiles
@@ -65,7 +66,9 @@ tcga_fig <- ggplot(thyroid, aes(mut_type,ANGPT2, fill=mut_type)) +
         axis.title = element_text(face="bold", size=15)) +
   guides(fill=FALSE, colour=FALSE) +
   labs(x="Mutation type") +
-  scale_color_jama() 
+  scale_color_jama() +
+  geom_signif(annotations = c("***", "***"), 
+              y_position = c(5.5, 5.8), xmin = c(1,1), xmax = c(2,3)) 
 
 t.test(ANGPT2 ~ mut_type, data = subset(thyroid, mut_type!="non-RAS/BRAF"))
 t.test(ANGPT2 ~ mut_type, data = subset(thyroid, mut_type!="BRAF"))
